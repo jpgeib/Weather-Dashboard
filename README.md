@@ -1,0 +1,1 @@
+This homework assignment involves creating a weather dashboard that utilizes an api to retrieve global weather information and append it to the page via a search query. Main javascript/jquery techniques include ajax calls in JSON format, and local storage for previous search queries.
