@@ -1,6 +1,10 @@
 
 
 #title {
-    color: blue;
+    color: white;
     text-align: center;
-};
+}
+
+#title-backdrop {
+    background-color: black;
+}
