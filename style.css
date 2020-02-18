@@ -8,3 +8,8 @@
 #title-backdrop {
     background-color: black;
 }
+
+.forecast-block {
+    display: inline-block;
+    background-color: #007bff;
+}
