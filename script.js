@@ -41,16 +41,20 @@ const getUVIndex = function(lat, lon) {
 const getForecast = function(city) {
     $.ajax({
         type: "GET",
-        url: "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&cnt=7&appid=" + apiKey,
+        url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey,
         dataType: "JSON",
         success: function(data) {
-            for(let i = 0; i <data.list.length; i++) {
-                $("monday").append(data.list[0]);
-                $("tuesday").append(data.list[1]);
-                $("wednesday").append(data.list[2]);
-                $("thursday").append(data.list[3]);
-                $("friday").append(data.list[4]);
-                console.log(data);
+            for(let i = 0; i < data.list.length; i++) {
+                $("monday").append(data.list[0].weather[0].main);
+                $("tuesday").append(data.list[8].weather[0].main);
+                // $("wednesday").append(data.list[2].weather[2].main);
+                // $("thursday").append(data.list[3].weather[3].main);
+                // $("friday").append(data.list[4].weather[4].main);
+                console.log(data.list.weather[0].main);
+                // console.log(data.list[1].weather[1].main);
+                // console.log(data.list[2].weather[2].main);
+                // console.log(data.list[3].weather[3].main);
+                // console.log(data.list[4].weather[4].main);
             }
         }
     });
