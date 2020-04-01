@@ -17,8 +17,9 @@ const searchWeather = function(city) {
             $("#windSpeed").append(data.wind.speed + " mph");
             console.log(data);
             //Call UV ajax function for longitude and latitude
-            // getUVIndex(data.coord.lat, data.coord.lon);
-            //Call forecast function
+            console.log("UV", data.coord.lat, data.coord.lon)
+            getUVIndex(data.coord.lat, data.coord.lon);
+            
         }
     });
 };
@@ -27,11 +28,11 @@ const searchWeather = function(city) {
 const getUVIndex = function(lat, lon) {
     $.ajax({
         type: "GET",
-        url: "api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial",
+        url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial",
         dataType: "JSON",
         success: function(data) {
-            $("#UV").append(data.coord.lat + "°, " + data.coord.lon + "°");
-            console.log(data);
+            $("#UV").append("<span id='uvindex'>" + data.value + "</span>");
+            console.log("UV Index: ", data.value, " for", lat, "& ", lon);
         }
     });
 };
@@ -40,7 +41,7 @@ const getUVIndex = function(lat, lon) {
 const getForecast = function(city) {
     $.ajax({
         type: "GET",
-        url: "api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&cnt=7&appid=" + apiKey,
+        url: "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&cnt=7&appid=" + apiKey,
         dataType: "JSON",
         success: function(data) {
             for(let i = 0; i <data.list.length; i++) {
@@ -61,7 +62,6 @@ $("#search-button").on("click", function(event) {
     var city = $("#searchInput").val();
     console.log(city);
     searchWeather(city);
-    getUVIndex();
     getForecast(city);
 });
 
