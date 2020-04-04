@@ -12,7 +12,7 @@ const searchWeather = function(city) {
     $("#windSpeed").empty();
     $.ajax({
         type: "GET",
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + " &appid=" + apiKey + "&units=imperial",
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + " &appid=" + apiKey + "&units=imperial",
         dataType: "JSON",
         success: function(data) {
             $("#temperature").append("Temperature: " + data.main.temp + " °F");
@@ -32,7 +32,7 @@ const getUVIndex = function(lat, lon) {
     $("#UV").empty();
     $.ajax({
         type: "GET",
-        url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial",
+        url: "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey + "&units=imperial",
         dataType: "JSON",
         success: function(data) {
             $("#UV").append("UV Index: " + "<span id='uvindex'>" +  data.value + "</span>");
@@ -58,7 +58,7 @@ const getForecast = function(city) {
 
     $.ajax({
         type: "GET",
-        url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial",
+        url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial",
         dataType: "JSON",
         success: function(data) {
 
