@@ -92,15 +92,15 @@ const getForecast = function(city) {
                 $("#friday").append(data.list[33].main.humidity + " %" + "<br>");
 
                 //Weather icons
-                var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png");
+                var img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png");
                 $("#monday").append(img);
-                img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png");
+                img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png");
                 $("#tuesday").append(img);
-                img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[17].weather[0].icon + ".png");
+                img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[17].weather[0].icon + ".png");
                 $("#wednesday").append(img);
-                img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[25].weather[0].icon + ".png");
+                img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[25].weather[0].icon + ".png");
                 $("#thursday").append(img);
-                img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.list[33].weather[0].icon + ".png");
+                img = $("<img>").attr("src", "https://openweathermap.org/img/w/" + data.list[33].weather[0].icon + ".png");
                 $("#friday").append(img);
 
         }
